@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     AnimationCurve aC, attackAnimationCurve;
 
+    float speed = 10f;
+
     Transform player;
 
     Coroutine moveRoutine, launchRoutine;
@@ -66,7 +68,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         Vector3 position = transform.position;
-        for (float i = 0; i<= duration; i+=Time.deltaTime)
+        for (float i = 0; i<= duration; i+=Time.deltaTime*speed)
         {
             transform.position = Vector2.Lerp(position, pObjetivo, aC.Evaluate(i/duration));
             yield return null;

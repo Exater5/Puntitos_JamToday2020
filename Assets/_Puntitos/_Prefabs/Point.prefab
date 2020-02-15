@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4788133114359579357}
   - component: {fileID: 4867479125729986675}
   - component: {fileID: 290482815626402850}
+  - component: {fileID: 5314099692730351053}
+  - component: {fileID: 416553889063119086}
   m_Layer: 0
   m_Name: Point
   m_TagString: point
@@ -97,3 +99,41 @@ MonoBehaviour:
   _bolitaRadius: 0.6
   _minSpeed: 0.01
   _maxSpeed: 0.04
+--- !u!61 &5314099692730351053
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265277658172880549}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
+--- !u!114 &416553889063119086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265277658172880549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29bca8e762c64464988e17bb228cc026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
