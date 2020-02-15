@@ -19,6 +19,7 @@ public class Resource : MonoBehaviour
     void Pick()
     {
         gameController.bolitasRestantes -= 1;
+        FindObjectOfType<RecogeRecursos>().RecogeRecurso();
         Destroy(gameObject);
     }
 
