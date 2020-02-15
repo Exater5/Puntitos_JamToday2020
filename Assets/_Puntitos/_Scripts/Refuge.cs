@@ -14,7 +14,6 @@ public class Refuge : MonoBehaviour
         {
             if((e.transform.position - transform.position).magnitude <= _radius)
             {
-                print("LOLASO BRO");
                 e.GetComponent<Enemy>().Flee();
             }
         }

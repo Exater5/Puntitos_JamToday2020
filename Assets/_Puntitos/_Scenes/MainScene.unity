@@ -1921,6 +1921,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3970299356035811142, guid: 48060f48b4f0d274492343f4a8e7b4c0,
         type: 3}
+    - target: {fileID: 4400437743663907264, guid: 06cebadafc717e241bcf1ed1e338f2dd,
+        type: 3}
+      propertyPath: cristalPrefab
+      value: 
+      objectReference: {fileID: 7382608089569197097, guid: f5522552024348444b526ff69e65d334,
+        type: 3}
     - target: {fileID: 4400437743663907265, guid: 06cebadafc717e241bcf1ed1e338f2dd,
         type: 3}
       propertyPath: m_Name
@@ -2229,7 +2235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841879908}
-  - component: {fileID: 1841879907}
+  - component: {fileID: 1841879909}
   m_Layer: 8
   m_Name: Refuge
   m_TagString: Untagged
@@ -2237,22 +2243,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1841879907
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841879906}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!4 &1841879908
 Transform:
   m_ObjectHideFlags: 0
@@ -2267,6 +2257,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841879909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841879906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae87957449bd224b9d94575450b1d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 1.5
 --- !u!1 &1989514144
 GameObject:
   m_ObjectHideFlags: 0
