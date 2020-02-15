@@ -159,6 +159,8 @@ MonoBehaviour:
   minY: -4.75
   maxY: 4.75
   spawnTime: 2
+  enemigos: 0
+  maxEnemigos: 2
 --- !u!4 &83643864
 Transform:
   m_ObjectHideFlags: 0
