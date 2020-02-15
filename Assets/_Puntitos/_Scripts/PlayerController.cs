@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private float speed = 0.02f;
+    [SerializeField] private float duration = 2f;
     private Vector3 _target;
     [SerializeField] private GameObject _pointReference;
     [SerializeField] private int _initialPoints;
     public ArrayList _points;
+    Coroutine move;
 
     void Start()
     {
@@ -22,11 +23,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void LateUpdate()
-    {
-        transform.position = Vector3.Lerp(transform.position, _target, speed);
-    }
-
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -34,10 +30,26 @@ public class PlayerController : MonoBehaviour
             Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             click.z = 0f;
             _target = click;
+            if(move != null)
+            {
+                StopCoroutine(move);
+            }
+            move = StartCoroutine(Move(_target));
             foreach(GameObject g in GameObject.FindGameObjectsWithTag("point"))
             {
                 g.GetComponent<Point>().RandomizeFollowingLeader();
             }
         }
+    }
+
+    IEnumerator Move(Vector3 target)
+    {
+        Vector3 source = transform.position;
+        for(float i=0; i<duration; i+=Time.deltaTime)
+        {
+            transform.position = Vector3.Lerp(source, target, i/duration);
+            yield return null;
+        }
+        transform.position = target;
     }
 }
