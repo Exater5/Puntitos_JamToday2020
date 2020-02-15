@@ -29,8 +29,14 @@ public class GameController : MonoBehaviour
                 night = false;
                 time = 0;
                 daysCounter++;
-                bolitasIniciales *= 2;
-                bolitasRestantes = bolitasIniciales;
+                if (bolitasRestantes <= 0)
+                {
+                    bolitasRestantes = bolitasRestantes + (bolitasIniciales * daysCounter);
+                }
+                else
+                {
+                    print("Pierdes");
+                }
             }
         }
     }
