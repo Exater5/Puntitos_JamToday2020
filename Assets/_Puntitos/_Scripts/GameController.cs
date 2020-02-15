@@ -10,10 +10,11 @@ public class GameController : MonoBehaviour
     [SerializeField]
     float totalDuration;
     int bolitasRestantes;
-    int bolitasIniciales;
+    [SerializeField]
+    int currentBolitas;
     void Start()
     {
-        bolitasRestantes = bolitasIniciales;
+        bolitasRestantes = currentBolitas;
         time = 0;
         night = false;
     }
@@ -31,13 +32,13 @@ public class GameController : MonoBehaviour
                 daysCounter++;
                 if (bolitasRestantes <= 0)
                 {
-                    bolitasRestantes = bolitasRestantes + (bolitasIniciales * daysCounter);
+                    bolitasRestantes = currentBolitas;
                 }
                 else
                 {
                     print("Pierdes");
                 }
             }
-        }
+        }   
     }
 }
