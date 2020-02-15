@@ -9,15 +9,15 @@ public class GameController : MonoBehaviour
     int daysCounter;
     [SerializeField]
     float totalDuration;
-
-    // Start is called before the first frame update
+    int bolitasRestantes;
+    int bolitasIniciales;
     void Start()
     {
+        bolitasRestantes = bolitasIniciales;
         time = 0;
         night = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
@@ -29,8 +29,9 @@ public class GameController : MonoBehaviour
                 night = false;
                 time = 0;
                 daysCounter++;
+                bolitasIniciales *= 2;
+                bolitasRestantes = bolitasIniciales;
             }
         }
-
     }
 }
