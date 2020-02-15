@@ -28,6 +28,7 @@ public class Die : MonoBehaviour
             originalScale = Time.timeScale;
             cam.GetComponent<CameraShake>().shakeDuration=0.01f;
             //Time.timeScale = 0.05f;
+            GameObject.Find("Player").GetComponent<PlayerController>()._points.Remove(gameObject);
             Destroy(gameObject);
             //Time.timeScale = originalScale;
         }
