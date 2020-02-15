@@ -14,10 +14,12 @@ public class MenuController : MonoBehaviour
     Color c1, c2;
     [SerializeField]
     Animator animMenuInGame;
+    public AudioManager soundManager;
 
     public bool pausa = false;
     private void Start()
     {
+        soundManager = FindObjectOfType<AudioManager>();
         StartCoroutine(Fade(true, 0, false));
     }
 
@@ -31,10 +33,12 @@ public class MenuController : MonoBehaviour
     }
     public void LoadMainScene()
     {
+        soundManager.PlaySound(0);
         StartCoroutine(Fade(false, 1, true));
     }
     public void Pausa()
     {
+        soundManager.PlaySound(0);
         pausa = !pausa;
         if (pausa)
         {
