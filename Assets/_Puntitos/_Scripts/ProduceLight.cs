@@ -32,7 +32,7 @@ public class ProduceLight : MonoBehaviour
         {
             if( (transform.position-enemy.transform.position).magnitude <=radius)
             {
-                Debug.Log(enemy.name);
+                enemy.GetComponent<Enemy>().Attack();
             }
         }
         if(Input.GetMouseButtonDown(1))
