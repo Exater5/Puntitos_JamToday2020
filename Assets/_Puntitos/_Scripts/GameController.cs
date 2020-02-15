@@ -21,14 +21,22 @@ public class GameController : MonoBehaviour
     float minX, maxX, minY, maxY, spawnTime;
     [SerializeField]
     int enemigos, maxEnemigos;
+    private PlayerController player;
 
-    void Start()
+    void Awake()
     {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
         bolitasRestantes = currentBolitas;
         time = 0;
         night = false;
         StartCoroutine(SpawnEnemy());
         GenerateBolitas();
+    }
+
+
+    void GameOver()
+    {
+        print("GAMEOVERRRRRRR");
     }
 
 
@@ -42,6 +50,12 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+
+        if(player._points.Count == 0)
+        {
+            GameOver();
+        }
+
         time += Time.deltaTime;
         if(time >= totalDuration/2)
         {
@@ -52,18 +66,28 @@ public class GameController : MonoBehaviour
                 time = 0;
                 daysCounter++;
                 // Cambio de día:
-
-                if (bolitasRestantes <= 0)
-                {
-                    bolitasRestantes = currentBolitas;
-                    maxEnemigos += 1;
-                    StartCoroutine(SpawnEnemy());
-                }
-                else
+                currentBolitas = player._points.Count / 2 - 1;
+                if (bolitasRestantes > 0)
                 {
                     // Pass nigth without recollect all resources
-                    print("Pierdes");
+                    GameObject[] resources = GameObject.FindGameObjectsWithTag("Resource");
+                    foreach(GameObject g in resources)
+                    {
+                        Destroy(g);
+                    }
+                    // Destroy people:
+                    int toDestroy = Mathf.Clamp(player._points.Count-bolitasRestantes, 0, 1000);
+                    for(int i=0; i<toDestroy; ++i)
+                    {
+                        GameObject tmp = (GameObject) player._points[0];
+                        player._points.Remove(tmp);
+                        Destroy(tmp);
+                    }
                 }
+                bolitasRestantes = currentBolitas;
+                maxEnemigos += 1;
+                GenerateBolitas();
+                StartCoroutine(SpawnEnemy());
             }
         }   
     }
