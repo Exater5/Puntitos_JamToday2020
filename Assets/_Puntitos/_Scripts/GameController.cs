@@ -85,6 +85,7 @@ public class GameController : MonoBehaviour
                     }
                 }
                 bolitasRestantes = currentBolitas;
+                FindObjectOfType<RecogeRecursos>().Recalcula();
                 maxEnemigos += 1;
                 GenerateBolitas();
                 StartCoroutine(SpawnEnemy());
