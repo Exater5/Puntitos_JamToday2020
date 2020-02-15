@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     float time;
-    bool night;
+    public bool night;
     int daysCounter;
     [SerializeField]
     float totalDuration;

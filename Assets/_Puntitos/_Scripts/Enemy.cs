@@ -20,10 +20,14 @@ public class Enemy : MonoBehaviour
     Coroutine moveRoutine, launchRoutine;
 
     private bool attacking;
+
+    public GameController controller;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        controller = FindObjectOfType<GameController>();
         moveRoutine = StartCoroutine(Traslada(RandomObjetive()));
+        Debug.Log(controller.name);
     }
 
     IEnumerator Traslada(Vector2 pObjetivo)
@@ -40,6 +44,14 @@ public class Enemy : MonoBehaviour
 
     public Vector2 RandomObjetive()
     {
+        if(controller.night)
+        {
+            x = Random.Range(0.1f,1.0f);
+            y = Random.Range(0.1f,1.0f);
+            posObjetivo = new Vector2((player.position.x-transform.position.x)*x,(player.position.y-transform.position.y)*y);
+            return posObjetivo;
+            
+        }
         x = Random.Range(transform.position.x - rango, transform.position.x + rango);
         y = Random.Range(transform.position.y - rango, transform.position.y + rango);
         x = Mathf.Clamp(x, minX, maxX);

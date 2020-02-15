@@ -762,6 +762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2915059182422507476, guid: 6992727f6cd1a5f4da3c3ffc015917ea,
+        type: 3}
+      propertyPath: shakeAmount
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2915059182422507477, guid: 6992727f6cd1a5f4da3c3ffc015917ea,
         type: 3}
       propertyPath: m_RenderPostProcessing
