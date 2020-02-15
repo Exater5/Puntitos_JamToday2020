@@ -23,8 +23,13 @@ public class GameController : MonoBehaviour
     int enemigos, maxEnemigos;
     private PlayerController player;
 
+    // Resucitar:
+    public int deadCounter = 0;
+    public ArrayList deadPositions;
+
     void Awake()
     {
+        deadPositions = new ArrayList();
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         bolitasRestantes = currentBolitas;
         time = 0;
@@ -109,5 +114,16 @@ public class GameController : MonoBehaviour
         float y = Random.Range(minY, maxY);
         Vector2 sPoint = new Vector2(x, y);
         return sPoint;
+    }
+
+    void SpawnCristals()
+    {
+        if(deadCounter >= 5)
+        {
+            print("VAmos a espaunear un cristaliko bro");
+        }
+
+        deadCounter = 0;
+        deadPositions.Clear();
     }
 }
