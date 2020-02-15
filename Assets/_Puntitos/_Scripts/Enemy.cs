@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
 
         for (float i = 0; i<= duration; i+=Time.deltaTime)
         {
-            transform.position = Vector2.Lerp(transform.position, pObjetivo, attackAnimationCurve.Evaluate(i/duration));
+            transform.position = Vector2.Lerp(transform.position, pObjetivo, aC.Evaluate(i/duration));
             yield return null;
         }
         attacking=false;
