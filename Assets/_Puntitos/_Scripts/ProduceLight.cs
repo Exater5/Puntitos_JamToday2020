@@ -6,9 +6,13 @@ public class ProduceLight : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private float timer = 0f;
+    public float timer = 0f;
+    public bool stopAnim = false;
+
+    private Animator animator;
     void Start()
     {
+        animator = GetComponent<Animator>();
         
     }
 
@@ -23,13 +27,14 @@ public class ProduceLight : MonoBehaviour
         if(Input.GetMouseButtonUp(1))
         {
             Debug.Log(timer);
-            GetComponent<Animator>().SetFloat("ButtonTimer",timer);
-        }
-        else
-        {
+            animator.SetFloat("ButtonTimer",timer);
             
-            timer=0f;
-            GetComponent<Animator>().SetFloat("ButtonTimer",timer);
+        }
+        if(stopAnim)
+        {
+            timer = 0f;
+            animator.SetFloat("ButtonTimer",timer);
+
         }
     }
 }
