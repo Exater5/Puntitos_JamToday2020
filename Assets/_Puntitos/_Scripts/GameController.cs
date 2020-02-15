@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     int daysCounter;
     [SerializeField]
     float totalDuration;
-    int bolitasRestantes;
+    public int bolitasRestantes;
     [SerializeField]
     int currentBolitas;
     [SerializeField]
