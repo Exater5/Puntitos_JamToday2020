@@ -9,16 +9,32 @@ public class ProduceLight : MonoBehaviour
     public float timer = 0f;
     public bool stopAnim = false;
 
+    public float radius;
+
     private Animator animator;
+
+    private GameObject[] enemies;
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        radius = (transform.position-transform.GetChild(0).transform.position).magnitude;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        radius = (transform.position-transform.GetChild(0).transform.position).magnitude;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemies)
+        {
+            if( (transform.position-enemy.transform.position).magnitude <=radius)
+            {
+                Debug.Log(enemy.name);
+            }
+        }
         if(Input.GetMouseButtonDown(1))
         {
             timer = 0f;
@@ -26,7 +42,6 @@ public class ProduceLight : MonoBehaviour
         timer+=Time.deltaTime;
         if(Input.GetMouseButtonUp(1))
         {
-            Debug.Log(timer);
             animator.SetFloat("ButtonTimer",timer);
             
         }
@@ -34,7 +49,7 @@ public class ProduceLight : MonoBehaviour
         {
             timer = 0f;
             animator.SetFloat("ButtonTimer",timer);
-
         }
+
     }
 }
