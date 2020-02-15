@@ -25,6 +25,8 @@ public class Die : MonoBehaviour
     {
         if(other.transform.tag == "Enemy")
         {
+            FindObjectOfType<GameController>().deadCounter++;
+            FindObjectOfType<GameController>().deadPositions.Add(other.transform.position);
             originalScale = Time.timeScale;
             cam.GetComponent<CameraShake>().shakeDuration=0.01f;
             //Time.timeScale = 0.05f;
