@@ -11,10 +11,18 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float duration;
     [SerializeField]
-    AnimationCurve aC;
+    AnimationCurve aC, attackAnimationCurve;
+
+    Transform player;
+
+    Coroutine moveRoutine;
+
+    private bool attacking;
     void Start()
     {
-        StartCoroutine(Traslada(RandomObjetive()));
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        moveRoutine = StartCoroutine(Traslada(RandomObjetive()));
+
     }
 
     IEnumerator Traslada(Vector2 pObjetivo)
@@ -25,7 +33,7 @@ public class Enemy : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(retraso);
-        StartCoroutine(Traslada(RandomObjetive()));
+        moveRoutine = StartCoroutine(Traslada(RandomObjetive()));
     }
 
     public Vector2 RandomObjetive()
@@ -37,4 +45,33 @@ public class Enemy : MonoBehaviour
         posObjetivo = new Vector2(x, y);
         return posObjetivo;
     }
+
+    public void Attack()
+    {
+        if(!attacking)
+        {
+            StartCoroutine(Launch(player.position));
+            attacking = true;
+
+        }
+    }
+
+    
+    IEnumerator Launch(Vector2 pObjetivo)
+    {
+        if(moveRoutine!=null)
+        {
+            StopCoroutine(moveRoutine);
+        }
+        yield return new WaitForSeconds(0.5f);
+
+        for (float i = 0; i<= duration; i+=Time.deltaTime)
+        {
+            transform.position = Vector2.Lerp(transform.position, pObjetivo, attackAnimationCurve.Evaluate(i/duration));
+            yield return null;
+        }
+        attacking=false;
+        moveRoutine = StartCoroutine(Traslada(RandomObjetive()));
+    }
+
 }
