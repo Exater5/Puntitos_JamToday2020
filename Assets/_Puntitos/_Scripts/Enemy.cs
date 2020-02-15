@@ -46,18 +46,20 @@ public class Enemy : MonoBehaviour
     {
         if(controller.night)
         {
-            x = Random.Range(0.1f,1.0f);
-            y = Random.Range(0.1f,1.0f);
+            x = Random.Range(0.1f,0.9f);
+            y = Random.Range(0.1f,0.9f);
             posObjetivo = new Vector2((player.position.x-transform.position.x)*x,(player.position.y-transform.position.y)*y);
             return posObjetivo;
-            
         }
-        x = Random.Range(transform.position.x - rango, transform.position.x + rango);
-        y = Random.Range(transform.position.y - rango, transform.position.y + rango);
-        x = Mathf.Clamp(x, minX, maxX);
-        y = Mathf.Clamp(y, minY, maxY);
-        posObjetivo = new Vector2(x, y);
-        return posObjetivo;
+        else
+        {
+            x = Random.Range(transform.position.x - rango, transform.position.x + rango);
+            y = Random.Range(transform.position.y - rango, transform.position.y + rango);
+            x = Mathf.Clamp(x, minX, maxX);
+            y = Mathf.Clamp(y, minY, maxY);
+            posObjetivo = new Vector2(x, y);
+            return posObjetivo;
+        }
     }
 
     public void Attack()
