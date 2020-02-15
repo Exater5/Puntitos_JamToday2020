@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46913d8bd998824c90b1a92d9f4c4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickRadius: 1
+  _pickRadius: 0.3
 --- !u!212 &3970299356035811143
 SpriteRenderer:
   m_ObjectHideFlags: 0

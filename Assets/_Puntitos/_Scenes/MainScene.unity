@@ -188,6 +188,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4495814184818410974, guid: 8e8da0d7e9e9980439cab12b237addfb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064074284463974413, guid: 8e8da0d7e9e9980439cab12b237addfb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064074284463974417, guid: 8e8da0d7e9e9980439cab12b237addfb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e8da0d7e9e9980439cab12b237addfb, type: 3}
 --- !u!1 &615655718
@@ -515,6 +530,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4400437743663907264, guid: 06cebadafc717e241bcf1ed1e338f2dd,
+        type: 3}
+      propertyPath: currentBolitas
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400437743663907264, guid: 06cebadafc717e241bcf1ed1e338f2dd,
+        type: 3}
+      propertyPath: resourcePrefab
+      value: 
+      objectReference: {fileID: 3970299356035811142, guid: 48060f48b4f0d274492343f4a8e7b4c0,
+        type: 3}
     - target: {fileID: 4400437743663907265, guid: 06cebadafc717e241bcf1ed1e338f2dd,
         type: 3}
       propertyPath: m_Name

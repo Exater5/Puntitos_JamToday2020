@@ -15,21 +15,21 @@ public class Enemy : MonoBehaviour
 
     Transform player;
 
-    Coroutine moveRoutine;
+    Coroutine moveRoutine, launchRoutine;
 
     private bool attacking;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         moveRoutine = StartCoroutine(Traslada(RandomObjetive()));
-
     }
 
     IEnumerator Traslada(Vector2 pObjetivo)
     {
+        Vector3 pos = transform.position;
         for (float i = 0; i<= duration; i+=Time.deltaTime)
         {
-            transform.position = Vector2.Lerp(transform.position, pObjetivo, aC.Evaluate(i/duration));
+            transform.position = Vector2.Lerp(pos, pObjetivo, aC.Evaluate(i/duration));
             yield return null;
         }
         yield return new WaitForSeconds(retraso);
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     {
         if(!attacking)
         {
-            StartCoroutine(Launch(player.position));
+            launchRoutine = StartCoroutine(Launch(player.position));
             attacking = true;
 
         }
@@ -65,9 +65,40 @@ public class Enemy : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
 
+        Vector3 position = transform.position;
         for (float i = 0; i<= duration; i+=Time.deltaTime)
         {
-            transform.position = Vector2.Lerp(transform.position, pObjetivo, aC.Evaluate(i/duration));
+            transform.position = Vector2.Lerp(position, pObjetivo, aC.Evaluate(i/duration));
+            yield return null;
+        }
+        attacking=false;
+        moveRoutine = StartCoroutine(Traslada(RandomObjetive()));
+    }
+
+    public void Flee()
+    {
+        if(moveRoutine!=null)
+        {
+            StopCoroutine(moveRoutine);
+        }
+
+        if(launchRoutine != null)
+        {
+            StopCoroutine(launchRoutine);
+        }
+
+        Vector3 objetive = (transform.position - player.position) * 1.5f;
+        StartCoroutine(ReverseLaunch(objetive));
+    }
+
+    IEnumerator ReverseLaunch(Vector2 pObjetivo)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Vector3 position = transform.position;
+        for (float i = 0; i<= duration; i+=Time.deltaTime)
+        {
+            transform.position = Vector2.Lerp(position, pObjetivo, aC.Evaluate(i/duration));
             yield return null;
         }
         attacking=false;

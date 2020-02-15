@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     int currentBolitas;
     [SerializeField]
     GameObject enemyPrefab;
+    [SerializeField]
+    GameObject resourcePrefab;
 
     [SerializeField]
     float minX, maxX, minY, maxY, spawnTime;
@@ -26,7 +28,17 @@ public class GameController : MonoBehaviour
         time = 0;
         night = false;
         StartCoroutine(SpawnEnemy());
+        GenerateBolitas();
     }
+
+
+    void GenerateBolitas(){
+        for (int i=0; i<bolitasRestantes; ++i)
+        {
+            Instantiate(resourcePrefab, SpawnPoint(), Quaternion.identity);
+        }
+    }
+
 
     void Update()
     {
@@ -39,6 +51,8 @@ public class GameController : MonoBehaviour
                 night = false;
                 time = 0;
                 daysCounter++;
+                // Cambio de día:
+
                 if (bolitasRestantes <= 0)
                 {
                     bolitasRestantes = currentBolitas;
@@ -47,6 +61,7 @@ public class GameController : MonoBehaviour
                 }
                 else
                 {
+                    // Pass nigth without recollect all resources
                     print("Pierdes");
                 }
             }
