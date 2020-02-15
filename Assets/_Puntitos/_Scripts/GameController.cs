@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     // Resucitar:
     public int deadCounter = 0;
     public ArrayList deadPositions;
+    public GameObject cristalPrefab; 
 
     void Awake()
     {
@@ -71,6 +72,7 @@ public class GameController : MonoBehaviour
                 time = 0;
                 daysCounter++;
                 // Cambio de día:
+                SpawnCristals();
                 currentBolitas = player._points.Count / 2 - 1;
                 if (bolitasRestantes > 0)
                 {
@@ -118,9 +120,9 @@ public class GameController : MonoBehaviour
 
     void SpawnCristals()
     {
-        if(deadCounter >= 5)
+        for(int i=0; i<deadCounter / 5; ++i)
         {
-            print("VAmos a espaunear un cristaliko bro");
+            Instantiate(cristalPrefab, (Vector3) deadPositions[Random.Range(0, deadPositions.Count-1)], Quaternion.identity);
         }
 
         deadCounter = 0;
