@@ -12,7 +12,10 @@ public class MenuController : MonoBehaviour
     float duration;
     [SerializeField]
     Color c1, c2;
+    [SerializeField]
+    Animator animMenuInGame;
 
+    public bool pausa = false;
     private void Start()
     {
         StartCoroutine(Fade(true, 0, false));
@@ -30,12 +33,25 @@ public class MenuController : MonoBehaviour
     {
         StartCoroutine(Fade(false, 1, true));
     }
+    public void Pausa()
+    {
+        pausa = !pausa;
+        if (pausa)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        animMenuInGame.SetBool("Pausa", pausa);
+    }
 
     IEnumerator Fade(bool entrada, int scene, bool cargaEscena)
     {
         if (entrada) { fadeImage.color = c2; }
 
-        for(float i = 0; i<= duration; i+= Time.deltaTime)
+        for(float i = 0; i<= duration; i+= Time.unscaledDeltaTime)
         {
             if (entrada)
             {
