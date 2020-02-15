@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     Vector2 posObjetivo;
     float x, y;
     [SerializeField]
-    float minX, maxX, minY, maxY, rango;
+    float minX, maxX, minY, maxY, rango, retraso;
     [SerializeField]
     float duration;
     [SerializeField]
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         StartCoroutine(Traslada(RandomObjetive()));
+
     }
 
     IEnumerator Traslada(Vector2 pObjetivo)
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.Lerp(transform.position, pObjetivo, aC.Evaluate(i/duration));
             yield return null;
         }
+        yield return new WaitForSeconds(retraso);
         StartCoroutine(Traslada(RandomObjetive()));
     }
 

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        _target = transform.position;
         // Instantiate Points:
         for(int i=0; i<_initialPoints; ++i)
         {

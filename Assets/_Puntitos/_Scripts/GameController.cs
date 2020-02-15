@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     float minX, maxX, minY, maxY, spawnTime;
+    [SerializeField]
+    int enemigos, maxEnemigos;
 
     void Start()
     {
@@ -40,6 +42,8 @@ public class GameController : MonoBehaviour
                 if (bolitasRestantes <= 0)
                 {
                     bolitasRestantes = currentBolitas;
+                    maxEnemigos += 1;
+                    StartCoroutine(SpawnEnemy());
                 }
                 else
                 {
@@ -52,8 +56,12 @@ public class GameController : MonoBehaviour
     IEnumerator SpawnEnemy()
     {
         Instantiate(enemyPrefab, SpawnPoint(), Quaternion.identity);
+        enemigos++;
         yield return new WaitForSeconds(spawnTime);
-        StartCoroutine(SpawnEnemy());
+        if(enemigos <= maxEnemigos)
+        {
+            StartCoroutine(SpawnEnemy());
+        }
     }
     public Vector2 SpawnPoint()
     {
