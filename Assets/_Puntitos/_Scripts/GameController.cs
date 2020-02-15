@@ -12,11 +12,18 @@ public class GameController : MonoBehaviour
     int bolitasRestantes;
     [SerializeField]
     int currentBolitas;
+    [SerializeField]
+    GameObject enemyPrefab;
+
+    [SerializeField]
+    float minX, maxX, minY, maxY, spawnTime;
+
     void Start()
     {
         bolitasRestantes = currentBolitas;
         time = 0;
         night = false;
+        StartCoroutine(SpawnEnemy());
     }
 
     void Update()
@@ -40,5 +47,19 @@ public class GameController : MonoBehaviour
                 }
             }
         }   
+    }
+
+    IEnumerator SpawnEnemy()
+    {
+        Instantiate(enemyPrefab, SpawnPoint(), Quaternion.identity);
+        yield return new WaitForSeconds(spawnTime);
+        StartCoroutine(SpawnEnemy());
+    }
+    public Vector2 SpawnPoint()
+    {
+        float x = Random.Range(minX, maxX);
+        float y = Random.Range(minY, maxY);
+        Vector2 sPoint = new Vector2(x, y);
+        return sPoint;
     }
 }
