@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Puntitos/_Scenes/Menu.unity
     guid: 9756144c6b1eb2d43bd54775dd8f8f64
   - enabled: 1
+    path: Assets/_Puntitos/_Scenes/MainScene.unity
+    guid: 0e76d0670c7d1e841a723a90c047edf3
+  - enabled: 1
     path: Assets/_Puntitos/_Scenes/JosesLio.unity
     guid: 6d863d55828dafb4a91468bafc38542a
   m_configObjects: {}

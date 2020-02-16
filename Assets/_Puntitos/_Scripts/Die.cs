@@ -30,7 +30,7 @@ public class Die : MonoBehaviour
         }
     }
 
-    void Dead()
+    public void Dead()
     {
         transform.localScale = new Vector3(0.07f,0.07f,0.07f);
         cam.GetComponent<CameraShake>().shakeDuration=0.01f;

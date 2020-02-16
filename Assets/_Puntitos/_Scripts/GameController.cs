@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
                     {
                         GameObject tmp = (GameObject) player._points[0];
                         player._points.Remove(tmp);
-                        Destroy(tmp);
+                        tmp.GetComponent<Die>().Dead();
                     }
                 }
                 bolitasRestantes = currentBolitas;
