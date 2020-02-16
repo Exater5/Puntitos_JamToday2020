@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _initialPoints;
     public ArrayList _points;
     Coroutine move;
+    MenuController menu;
 
     void Start()
     {
+        menu = GameObject.Find("SceneManager").GetComponent<MenuController>();
         _points = new ArrayList();
         _target = transform.position;
         // Instantiate Points:
@@ -25,7 +27,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        bool paused = menu.pausa;
+        if(Input.GetMouseButtonDown(0) && !paused)
         {
             Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             click.z = 0f;
