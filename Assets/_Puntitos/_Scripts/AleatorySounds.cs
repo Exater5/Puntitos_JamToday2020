@@ -7,7 +7,7 @@ public class AleatorySounds : MonoBehaviour
     public AudioClip[] clips;
     public AudioSource[] aSources;
     int currenSource;
-    public float delay;
+    public float minDelay, maxDelay;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class AleatorySounds : MonoBehaviour
         int sound = Random.Range(0, clips.Length);
         print(sound);
         PlaySound(sound);
-        yield return new WaitForSeconds(Random.Range(2, delay+2));
+        yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
         StartCoroutine(PlayAleatory());
     }
 }

@@ -15,7 +15,8 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     Animator animMenuInGame;
     public AudioManager soundManager;
-
+    [SerializeField]
+    GameObject canvas;
     public bool pausa = false;
     private void Start()
     {
@@ -42,10 +43,12 @@ public class MenuController : MonoBehaviour
         pausa = !pausa;
         if (pausa)
         {
+            canvas.SetActive(true);
             Time.timeScale = 0;
         }
         else
         {
+            canvas.SetActive(false);
             Time.timeScale = 1;
         }
         animMenuInGame.SetBool("Pausa", pausa);
