@@ -8,7 +8,12 @@ public class Die : MonoBehaviour
 
     public GameObject blood;
     public GameObject explosion;
+    AudioManager aM;
 
+    private void Start()
+    {
+        aM = FindObjectOfType<AudioManager>();
+    }
     void Update()
     {
         cam = Camera.main.gameObject;
@@ -18,6 +23,7 @@ public class Die : MonoBehaviour
     {
         if(other.transform.tag == "Enemy")
         {
+            aM.PlaySound(4);
             transform.localScale = new Vector3(0.07f,0.07f,0.07f);
             FindObjectOfType<GameController>().deadCounter++;
             FindObjectOfType<GameController>().deadPositions.Add(other.transform.position);
@@ -32,6 +38,7 @@ public class Die : MonoBehaviour
 
     public void Dead()
     {
+        aM.PlaySound(4);
         transform.localScale = new Vector3(0.07f,0.07f,0.07f);
         cam.GetComponent<CameraShake>().shakeDuration=0.01f;
         GameObject.Find("Player").GetComponent<PlayerController>()._points.Remove(gameObject);
