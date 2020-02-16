@@ -35,7 +35,6 @@ public class MenuController : MonoBehaviour
     public void LoadMainScene()
     {
         soundManager.PlaySound(0);
-        FindObjectOfType<MenuLoopBso>().CrPlayer();
         StartCoroutine(Fade(false, 1, true));
     }
     public void Pausa()

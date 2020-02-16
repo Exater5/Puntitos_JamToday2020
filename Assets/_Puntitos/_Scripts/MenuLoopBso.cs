@@ -8,31 +8,25 @@ public class MenuLoopBso : MonoBehaviour
     AudioSource bso1, bso2;
     bool played = false;
     [SerializeField]
-    float loopTime;
+    float fadeOutTime;
     // Update is called once per frame
-    private void Start()
-    {
-        Time.timeScale = 1;
-    }
     void Update()
     {
-        if (bso1.time >= loopTime && !played)
+        print(bso1.time);
+        if (played) { print("AHORA"); }
+        if (bso1.time >= 30 && !played)
         {
             played = true;
             bso2.Play();
         }
     }
-    IEnumerator FadeOut()
+    public IEnumerator Juega()
     {
-        for(float i = 0; i<=1; i += Time.deltaTime)
+        for(float i = 0; i<=fadeOutTime; i += Time.deltaTime)
         {
             bso1.volume = 1 - i;
             bso2.volume = 1 - i;
             yield return null;
         }
-    }
-    public void CrPlayer()
-    {
-        StartCoroutine(FadeOut());
     }
 }
