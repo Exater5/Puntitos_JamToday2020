@@ -18,13 +18,15 @@ public class Die : MonoBehaviour
     {
         if(other.transform.tag == "Enemy")
         {
+            transform.localScale = new Vector3(0.07f,0.07f,0.07f);
             FindObjectOfType<GameController>().deadCounter++;
             FindObjectOfType<GameController>().deadPositions.Add(other.transform.position);
             cam.GetComponent<CameraShake>().shakeDuration=0.01f;
             GameObject.Find("Player").GetComponent<PlayerController>()._points.Remove(gameObject);
             Instantiate(blood,transform.position,Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),0f));
-            Instantiate(explosion,transform.position,other.transform.rotation);
-            Destroy(gameObject);
+            GameObject exp = Instantiate(explosion,transform.position,other.transform.rotation);
+            exp.transform.LookAt((-1)*(other.transform.position));
+            Destroy(gameObject,0.05f);
         }
     }
 }
