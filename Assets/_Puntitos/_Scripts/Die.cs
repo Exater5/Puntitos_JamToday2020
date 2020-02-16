@@ -7,7 +7,7 @@ public class Die : MonoBehaviour
     GameObject cam;
 
     public GameObject blood;
-    public ParticleSystem explosion;
+    public GameObject explosion;
 
     void Update()
     {
@@ -22,8 +22,8 @@ public class Die : MonoBehaviour
             FindObjectOfType<GameController>().deadPositions.Add(other.transform.position);
             cam.GetComponent<CameraShake>().shakeDuration=0.01f;
             GameObject.Find("Player").GetComponent<PlayerController>()._points.Remove(gameObject);
-            explosion.Play();
             Instantiate(blood,transform.position,Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),0f));
+            Instantiate(explosion,transform.position,other.transform.rotation);
             Destroy(gameObject);
         }
     }

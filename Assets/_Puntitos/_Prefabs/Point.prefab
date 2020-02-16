@@ -140,7 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 6668690931625760623, guid: 2b754ebe8bd186c4c8cf1cabd0868d6a, type: 3}
-  explosion: {fileID: 852754447273937606}
+  explosion: {fileID: 3848875677768134979, guid: d7be8e9f874745640b36902270a4b1ca,
+    type: 3}
 --- !u!1001 &4520597732203133831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,17 +219,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DieParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 3848875677768134979, guid: d7be8e9f874745640b36902270a4b1ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7be8e9f874745640b36902270a4b1ca, type: 3}
 --- !u!4 &852754447273937607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3848875677768134976, guid: d7be8e9f874745640b36902270a4b1ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 4520597732203133831}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &852754447273937606 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3848875677768134977, guid: d7be8e9f874745640b36902270a4b1ca,
     type: 3}
   m_PrefabInstance: {fileID: 4520597732203133831}
   m_PrefabAsset: {fileID: 0}
