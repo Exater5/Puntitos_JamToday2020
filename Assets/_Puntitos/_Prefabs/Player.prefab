@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4495814184818410975}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +78,18 @@ MonoBehaviour:
   _pointReference: {fileID: 3265277658172880549, guid: 73eb5780b5c0b2e449812de631830535,
     type: 3}
   _initialPoints: 20
+--- !u!114 &1618363959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064074284463974417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00020c7569e2bcb42b4703b03c108385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4495814185214459391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 5876370648259417586, guid: 43781888e4a65054d9f6a1c11579d51a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5876370648259417586, guid: 43781888e4a65054d9f6a1c11579d51a,
         type: 3}
@@ -147,6 +159,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43781888e4a65054d9f6a1c11579d51a, type: 3}
+--- !u!1 &8064074284463974417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5876370648259417582, guid: 43781888e4a65054d9f6a1c11579d51a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4495814185214459391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8064074284463974413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5876370648259417586, guid: 43781888e4a65054d9f6a1c11579d51a,
