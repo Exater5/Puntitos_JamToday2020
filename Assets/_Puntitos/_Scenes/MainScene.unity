@@ -2253,7 +2253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bso1: {fileID: 1562107858}
   bso2: {fileID: 1562107857}
-  fadeOutTime: 60
+  loopTime: 0
+  mainScene: 0
 --- !u!82 &1562107857
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2489,7 +2490,7 @@ PrefabInstance:
     - target: {fileID: 4400437743663907264, guid: 06cebadafc717e241bcf1ed1e338f2dd,
         type: 3}
       propertyPath: totalDuration
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4400437743663907264, guid: 06cebadafc717e241bcf1ed1e338f2dd,
         type: 3}
