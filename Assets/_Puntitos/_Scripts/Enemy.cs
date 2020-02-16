@@ -79,7 +79,10 @@ public class Enemy : MonoBehaviour
         {
             StopCoroutine(moveRoutine);
         }
+        Vector3 lastSize = transform.localScale;
+        transform.localScale = transform.localScale*1.2f;
         yield return new WaitForSeconds(0.5f);
+        transform.localScale = lastSize;
 
         Vector3 position = transform.position;
         for (float i = 0; i<= duration; i+=Time.deltaTime*speed)
@@ -87,6 +90,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.Lerp(position, pObjetivo, aC.Evaluate(i/duration));
             yield return null;
         }
+        yield return new WaitForSeconds(1f);
         attacking=false;
         moveRoutine = StartCoroutine(Traslada(RandomObjetive()));
     }
