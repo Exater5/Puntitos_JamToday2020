@@ -7,6 +7,8 @@ public class MenuLoopBso : MonoBehaviour
     [SerializeField]
     AudioSource bso1, bso2;
     bool played = false;
+    [SerializeField]
+    float fadeOutTime;
     // Update is called once per frame
     void Update()
     {
@@ -16,6 +18,15 @@ public class MenuLoopBso : MonoBehaviour
         {
             played = true;
             bso2.Play();
+        }
+    }
+    public IEnumerator Juega()
+    {
+        for(float i = 0; i<=fadeOutTime; i += Time.deltaTime)
+        {
+            bso1.volume = 1 - i;
+            bso2.volume = 1 - i;
+            yield return null;
         }
     }
 }
