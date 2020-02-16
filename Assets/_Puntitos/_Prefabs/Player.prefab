@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09c630dfcc06894a9b84b238a077ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.005
+  duration: 1.5
   _pointReference: {fileID: 3265277658172880549, guid: 73eb5780b5c0b2e449812de631830535,
     type: 3}
   _initialPoints: 20

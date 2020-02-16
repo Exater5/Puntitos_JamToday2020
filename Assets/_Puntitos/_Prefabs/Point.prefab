@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bolitaRadius: 0.6
-  _minSpeed: 0.01
-  _maxSpeed: 0.3
+  _minSpeed: 0.007
+  _maxSpeed: 0.03
 --- !u!61 &5314099692730351053
 BoxCollider2D:
   m_ObjectHideFlags: 0
