@@ -44,7 +44,15 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        print("GAMEOVERRRRRRR");
+        GameObject.Find("SceneManager").GetComponent<MenuController>().pausa = true;
+        StartCoroutine(ToMenu());
+    }
+
+    IEnumerator ToMenu()
+    {
+        yield return new WaitForSeconds(6f);
+        MenuController menuController = GameObject.Find("SceneManager").GetComponent<MenuController>();
+        StartCoroutine(menuController.Fade(false, 0, true));
     }
 
 

@@ -54,7 +54,7 @@ public class MenuController : MonoBehaviour
         animMenuInGame.SetBool("Pausa", pausa);
     }
 
-    IEnumerator Fade(bool entrada, int scene, bool cargaEscena)
+    public IEnumerator Fade(bool entrada, int scene, bool cargaEscena)
     {
         if (entrada) { fadeImage.color = c2; }
 
