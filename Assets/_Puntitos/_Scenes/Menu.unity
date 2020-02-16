@@ -1292,6 +1292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bso1: {fileID: 2125909342}
   bso2: {fileID: 2125909341}
+  loopTime: 30
+  mainScene: 0
 --- !u!1001 &7233068512068953584
 PrefabInstance:
   m_ObjectHideFlags: 0
