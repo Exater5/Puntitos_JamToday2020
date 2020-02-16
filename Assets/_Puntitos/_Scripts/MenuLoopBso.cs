@@ -7,6 +7,8 @@ public class MenuLoopBso : MonoBehaviour
     [SerializeField]
     AudioSource bso1, bso2;
     bool played = false;
+    [SerializeField]
+    float loopTime;
     // Update is called once per frame
     private void Start()
     {
@@ -14,7 +16,7 @@ public class MenuLoopBso : MonoBehaviour
     }
     void Update()
     {
-        if (bso1.time >= 30 && !played)
+        if (bso1.time >= loopTime && !played)
         {
             played = true;
             bso2.Play();

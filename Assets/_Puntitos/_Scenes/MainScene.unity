@@ -2175,6 +2175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bso1: {fileID: 1562107858}
   bso2: {fileID: 1562107857}
+  loopTime: 50
 --- !u!82 &1562107857
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2186,7 +2187,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2854706283710826227, guid: 66ecc2d5ed1dbce49895d148619dc03f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9a71fefd2c6af384290ecd01dea35744, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 94237bc0212c7334686bd0c59eb27736, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2283,7 +2284,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2854706283710826227, guid: 66ecc2d5ed1dbce49895d148619dc03f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 557b771189fa200458ca80a3a1daa283, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 94237bc0212c7334686bd0c59eb27736, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
