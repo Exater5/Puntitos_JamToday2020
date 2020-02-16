@@ -23,7 +23,6 @@ public class AleatorySounds : MonoBehaviour
     IEnumerator PlayAleatory()
     {
         int sound = Random.Range(0, clips.Length);
-        print(sound);
         PlaySound(sound);
         yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
         StartCoroutine(PlayAleatory());

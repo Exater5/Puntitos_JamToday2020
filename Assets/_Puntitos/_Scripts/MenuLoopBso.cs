@@ -6,7 +6,7 @@ public class MenuLoopBso : MonoBehaviour
 {
     [SerializeField]
     AudioSource bso1, bso2;
-    bool played = false;
+    bool played, played2 = false;
     [SerializeField]
     float loopTime;
     [SerializeField]
@@ -21,7 +21,16 @@ public class MenuLoopBso : MonoBehaviour
         if (bso1.time >= loopTime && !played)
         {
             played = true;
+            played2 = false;
+            bso2.time = 0;
             bso2.Play();
+        }
+        if (mainScene && bso2.time>= loopTime && !played2)
+        {
+            played2 = true;
+            played = false;
+            bso1.time = 0;
+            bso1.Play();
         }
     }
     IEnumerator FadeOut()

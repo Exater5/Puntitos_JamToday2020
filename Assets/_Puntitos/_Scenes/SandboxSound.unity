@@ -1081,11 +1081,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2854706283710826227, guid: 66ecc2d5ed1dbce49895d148619dc03f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 026c2fc4622f04c42bd5b6da0f64aeee, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5805c72e2a94fc0439560a32579272d3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1178,7 +1178,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2854706283710826227, guid: 66ecc2d5ed1dbce49895d148619dc03f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 026c2fc4622f04c42bd5b6da0f64aeee, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5805c72e2a94fc0439560a32579272d3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1292,8 +1292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bso1: {fileID: 2125909342}
   bso2: {fileID: 2125909341}
-  loopTime: 9
-  mainScene: 0
+  loopTime: 60
+  mainScene: 1
 --- !u!1001 &7233068512068953584
 PrefabInstance:
   m_ObjectHideFlags: 0
