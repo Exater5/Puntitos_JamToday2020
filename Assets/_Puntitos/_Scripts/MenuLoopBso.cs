@@ -9,6 +9,8 @@ public class MenuLoopBso : MonoBehaviour
     bool played = false;
     [SerializeField]
     float loopTime;
+    [SerializeField]
+    bool mainScene;
     // Update is called once per frame
     private void Start()
     {
