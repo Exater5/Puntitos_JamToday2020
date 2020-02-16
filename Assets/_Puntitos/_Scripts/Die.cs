@@ -29,4 +29,14 @@ public class Die : MonoBehaviour
             Destroy(gameObject,0.05f);
         }
     }
+
+    void Dead()
+    {
+        transform.localScale = new Vector3(0.07f,0.07f,0.07f);
+        cam.GetComponent<CameraShake>().shakeDuration=0.01f;
+        GameObject.Find("Player").GetComponent<PlayerController>()._points.Remove(gameObject);
+        Instantiate(blood,transform.position,Quaternion.Euler(Random.Range(0f,360f),Random.Range(0f,360f),0f));
+        GameObject exp = Instantiate(explosion,transform.position,transform.rotation);
+        Destroy(gameObject,0.05f);
+    }
 }
