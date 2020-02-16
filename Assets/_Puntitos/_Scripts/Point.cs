@@ -11,6 +11,7 @@ public class Point : MonoBehaviour
     [SerializeField] private float _minSpeed;
     [SerializeField] private float _maxSpeed;
     private float _speed;
+    public float multiplier = 1f;
 
     public void RandomizeFollowingLeader()
     {
@@ -27,6 +28,6 @@ public class Point : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, leader.transform.position + _offset, _speed);
+        transform.position = Vector3.Lerp(transform.position, leader.transform.position + _offset, _speed * multiplier);
     }
 }
