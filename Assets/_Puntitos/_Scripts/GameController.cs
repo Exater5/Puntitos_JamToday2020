@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class GameController : MonoBehaviour
     // Resucitar:
     public int deadCounter = 0;
     public ArrayList deadPositions;
-    public GameObject cristalPrefab; 
+    public GameObject cristalPrefab;
+    public Text textLabel;
 
     void Awake()
     {
@@ -72,6 +74,7 @@ public class GameController : MonoBehaviour
                 time = 0;
                 daysCounter++;
                 // Cambio de día:
+                textLabel.text = "DAY " + (daysCounter + 1).ToString();
                 SpawnCristals();
                 currentBolitas = player._points.Count / 2 - 1;
                 if (bolitasRestantes > 0)

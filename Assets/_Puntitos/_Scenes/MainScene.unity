@@ -2253,7 +2253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bso1: {fileID: 1562107858}
   bso2: {fileID: 1562107857}
-  loopTime: 60
+  fadeOutTime: 60
 --- !u!82 &1562107857
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2265,7 +2265,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2854706283710826227, guid: 66ecc2d5ed1dbce49895d148619dc03f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 94237bc0212c7334686bd0c59eb27736, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5805c72e2a94fc0439560a32579272d3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2362,7 +2362,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2854706283710826227, guid: 66ecc2d5ed1dbce49895d148619dc03f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 94237bc0212c7334686bd0c59eb27736, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5805c72e2a94fc0439560a32579272d3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2489,8 +2489,13 @@ PrefabInstance:
     - target: {fileID: 4400437743663907264, guid: 06cebadafc717e241bcf1ed1e338f2dd,
         type: 3}
       propertyPath: totalDuration
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4400437743663907264, guid: 06cebadafc717e241bcf1ed1e338f2dd,
+        type: 3}
+      propertyPath: textLabel
+      value: 
+      objectReference: {fileID: 471573657}
     - target: {fileID: 4400437743663907265, guid: 06cebadafc717e241bcf1ed1e338f2dd,
         type: 3}
       propertyPath: m_Name
@@ -2995,6 +3000,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostPro
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871920195630336441, guid: 9061f184564cbe24fb27af017768b546,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497884307069786994, guid: 9061f184564cbe24fb27af017768b546,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497884307113331480, guid: 9061f184564cbe24fb27af017768b546,
+        type: 3}
+      propertyPath: priority
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9061f184564cbe24fb27af017768b546, type: 3}
