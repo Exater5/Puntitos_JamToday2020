@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     int enemigos, maxEnemigos;
     private PlayerController player;
 
+    AudioSource aS;
     // Resucitar:
     public int deadCounter = 0;
     public ArrayList deadPositions;
@@ -32,6 +33,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        aS = GetComponent<AudioSource>();
         deadPositions = new ArrayList();
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         bolitasRestantes = currentBolitas;
@@ -44,7 +46,7 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        FindObjectOfType<AudioManager>().PlaySound(5);
+
         GameObject.Find("SceneManager").GetComponent<MenuController>().pausa = true;
         StartCoroutine(ToMenu());
     }
@@ -70,6 +72,7 @@ public class GameController : MonoBehaviour
 
         if(player._points.Count == 0)
         {
+            aS.Play();
             GameOver();
         }
 
@@ -85,7 +88,7 @@ public class GameController : MonoBehaviour
                 // Cambio de día:
                 textLabel.text = "DAY " + (daysCounter + 1).ToString();
                 SpawnCristals();
-                
+                currentBolitas = player._points.Count / 2 - 1;
                 if (bolitasRestantes > 0)
                 {
                     // Pass nigth without recollect all resources
@@ -103,7 +106,6 @@ public class GameController : MonoBehaviour
                         tmp.GetComponent<Die>().Dead();
                     }
                 }
-                currentBolitas = player._points.Count / 2 - 1;
                 bolitasRestantes = currentBolitas;
                 FindObjectOfType<RecogeRecursos>().Recalcula();
                 maxEnemigos += 1;

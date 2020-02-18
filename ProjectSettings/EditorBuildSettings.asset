@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Puntitos/_Scenes/MainScene.unity
     guid: 0e76d0670c7d1e841a723a90c047edf3
   - enabled: 1
-    path: Assets/_Puntitos/_Scenes/JosesLio.unity
-    guid: 6d863d55828dafb4a91468bafc38542a
+    path: Assets/_Puntitos/_Scenes/Tutorial.unity
+    guid: 970a73855fac1484b90f58300d3621b9
+  - enabled: 1
+    path: Assets/_Puntitos/_Scenes/Creditos.unity
+    guid: 0e4e49a88c0bd3e48a2355ee64223781
   m_configObjects: {}
